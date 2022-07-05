@@ -1,0 +1,33 @@
+###
+
+GET http://localhost:3000/things/home/hello.json
+###
+
+GET http://localhost:3000/things/home/goodbye.json
+###
+
+GET http://localhost:3000/things/home/123.json
+###
+
+POST http://localhost:3000/things/home
+Content-Type: application/json
+
+{
+"wildcard": "hello"
+}
+###
+
+POST http://localhost:3000/things/home
+Content-Type: application/json
+
+{
+"wildcard": "goodbye"
+}
+###
+
+POST http://localhost:3000/things/home
+Content-Type: application/json
+
+{
+"wildcard": "123"
+}

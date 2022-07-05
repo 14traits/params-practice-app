@@ -1,5 +1,4 @@
 class ThingsController < ApplicationController
-
   def index
     array = Array.new
     things = Thing.all
@@ -42,12 +41,28 @@ class ThingsController < ApplicationController
   end
 
   def home
+    # render json: {message: "this is a test of the whatever"}
     if params[:wildcard] == "hello"
-      render :json {message: "'Well hello there...' - Obi-Wan"}
+      render json: { message: "'Well hello there...' - Obi-Wan" }
     elsif params[:wildcard] == "goodbye"
-      render :json {message: "'Where We Go From There Is A Choice I Leave To You.' - Neo"}
+      render json: { message: "'Where We Go From There Is A Choice I Leave To You.' - Neo" }
     elsif params[:wildcard] == "123"
-      render :json {message: "456"}
+      render json: { message: "456" }
+    else
+      redirect_to root_path
+    end
+  end
+
+  def emoh
+    # render json: {message: "this is a test of the whatever"}
+    if request.POST[:wildcard] == "hello"
+      render json: { message: "'Well hello there...' - Obi-Wan" }
+    elsif request.POST[:wildcard] == "goodbye"
+      render json: { message: "'Where We Go From There Is A Choice I Leave To You.' - Neo" }
+    elsif request.POST[:wildcard] == "123"
+      render json: { message: "456" }
+    else
+      redirect_to root_path
+    end
   end
 end
-
